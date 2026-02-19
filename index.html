@@ -3,285 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Tech | Programación y Diseño</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Aura Tech | Impacto Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-bg: #0f172a;
-            --dark-card: #1e293b;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --primary-blue: #38bdf8;
-            --accent-blue: #0ea5e9;
-            --border-color: #334155;
-            --whatsapp-green: #25d366;
+            --bg: #0b0f1a;
+            --card: #161b2a;
+            --primary: #38bdf8;
+            --accent: #0ea5e9;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
-            line-height: 1.6;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* Fondo Decorativo */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, #1e293b, transparent);
+            z-index: -1;
         }
 
-        /* Navegación */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
         header {
-            background-color: rgba(30, 41, 59, 0.95);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
+            background: rgba(11, 15, 26, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 100;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-blue);
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { 
+            font-size: 1.6rem; 
+            font-weight: 700; 
+            color: var(--primary); 
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: -1px;
         }
-        .logo span { color: var(--text-light); }
+        .logo span { color: #fff; }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav ul li { margin-left: 25px; }
-
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover { color: var(--primary-blue); }
-
-        /* Hero */
+        /* Hero Section */
         .hero {
-            padding: 100px 0;
+            padding: 120px 0 80px;
             text-align: center;
-            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--primary-blue);
-            margin-bottom: 20px;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .hero h1 span { color: white; }
+        .hero p { color: var(--muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        /* Servicios */
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            color: white;
-        }
-
-        .section-title h2 span { color: var(--primary-blue); }
-
-        .services-grid {
+        /* Tarjetas con Efecto Glassmorphism */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            margin-bottom: 80px;
+            margin-top: 50px;
         }
 
-        .service-card {
-            background: var(--dark-card);
+        .card {
+            background: var(--card);
             padding: 40px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            text-align: center;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-card:hover {
+        .card:hover {
             transform: translateY(-10px);
-            border-color: var(--primary-blue);
-            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .service-card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-        }
+        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.5rem; }
+        .card p { color: var(--muted); font-size: 0.95rem; }
 
-        /* Formulario */
-        .contact-box {
-            max-width: 550px;
-            margin: 0 auto 100px;
-            background: var(--dark-card);
+        /* Botón de Contacto Moderno */
+        .contact-section { padding: 100px 0; text-align: center; }
+        
+        .form-container {
+            background: var(--card);
+            max-width: 500px;
+            margin: 40px auto;
             padding: 40px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            border: 1px solid var(--glass);
         }
 
-        .contact-box input, .contact-box textarea {
+        input, textarea {
             width: 100%;
+            background: #0f1320;
+            border: 1px solid #2d364d;
             padding: 15px;
             margin-bottom: 20px;
-            background: var(--dark-bg);
-            border: 1px solid var(--border-color);
-            color: white;
-            border-radius: 10px;
-            font-family: inherit;
+            border-radius: 12px;
+            color: #fff;
             box-sizing: border-box;
         }
 
-        .contact-box button {
-            width: 100%;
+        .btn-ws {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
             padding: 18px;
-            background: var(--whatsapp-green);
-            color: white;
             border: none;
+            border-radius: 12px;
+            width: 100%;
             font-weight: 700;
-            border-radius: 10px;
             cursor: pointer;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: filter 0.3s;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            transition: 0.3s;
         }
 
-        .contact-box button:hover {
-            filter: brightness(1.1);
-        }
+        .btn-ws:hover { transform: scale(1.02); filter: brightness(1.1); }
 
-        footer {
-            text-align: center;
-            padding: 50px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        @media (max-width: 768px) {
-            nav ul { display: none; }
-        }
+        footer { padding: 40px; text-align: center; color: var(--muted); font-size: 0.8rem; }
     </style>
 </head>
 <body>
-
+    <div class="bg-glow"></div>
+    
     <header>
         <div class="container">
             <nav>
                 <a href="#" class="logo">Aura<span>Tech</span></a>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
+                <div style="color: var(--muted); font-size: 0.8rem;">Impacto Digital • Huella Eterna</div>
             </nav>
         </div>
     </header>
 
-    <section id="inicio" class="hero">
+    <section class="hero">
         <div class="container">
-            <h1>Aura <span>Tech</span></h1>
-            <p>Sistemas robustos, diseño impecable y optimización de AdSense. Llevamos tu idea al siguiente nivel con precisión militar.</p>
+            <h1>Aura Tech</h1>
+            <p>Fusionamos la disciplina con la tecnología de vanguardia para crear sistemas que dominan el mercado.</p>
         </div>
     </section>
 
     <div class="container">
-        <section id="servicios">
-            <div class="section-title">
-                <h2>Nuestras <span>Soluciones</span></h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Sistemas</h3>
+                <p>Arquitectura de software a medida. Soluciones robustas para problemas complejos.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>💻 Programación</h3>
-                    <p>Desarrollo de sistemas a medida y automatización de procesos complejos.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🎨 Diseño Web</h3>
-                    <p>Interfaces modernas, UX/UI y landing pages optimizadas para ventas.</p>
-                </div>
-                <div class="service-card">
-                    <h3>📈 AdSense</h3>
-                    <p>Configuración y optimización de sitios para máxima rentabilidad publicitaria.</p>
-                </div>
+            <div class="card">
+                <h3>Diseño Web</h3>
+                <p>Interfaces que cautivan. Experiencias de usuario diseñadas para convertir.</p>
             </div>
-        </section>
+            <div class="card">
+                <h3>AdSense</h3>
+                <p>Estrategias de monetización pasiva. Optimizamos tu sitio para el máximo rendimiento.</p>
+            </div>
+        </div>
 
-        <section id="contacto">
-            <div class="section-title">
-                <h2>¿Tienes un <span>Proyecto?</span></h2>
-                <p>Hablemos por WhatsApp y lo hacemos realidad.</p>
-            </div>
-            <div class="contact-box">
-                <input type="text" id="nombre" placeholder="Tu Nombre o Empresa" required>
-                <input type="text" id="asunto" placeholder="¿Qué necesitas?" required>
-                <textarea id="mensaje" placeholder="Describe tu idea brevemente..." rows="4" required></textarea>
-                <button onclick="enviarWhatsapp()">
-                    ENVIAR A WHATSAPP
-                </button>
+        <section class="contact-section" id="contacto">
+            <h2>Hablemos de tu <span>Proyecto</span></h2>
+            <div class="form-container">
+                <input type="text" id="nombre" placeholder="Nombre completo">
+                <input type="text" id="asunto" placeholder="Servicio de interés">
+                <textarea id="mensaje" placeholder="Describe tu idea..." rows="4"></textarea>
+                <button class="btn-ws" onclick="enviar()">ENVIAR A WHATSAPP</button>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 Aura Tech | Creado con disciplina por mi programador estrella 🤍</p>
+        <p>&copy; 2026 Aura Tech. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        function enviarWhatsapp() {
-            // Tu número ya configurado:
-            const telefono = "584124066003"; 
+        function enviar() {
+            const tel = "584124066003";
+            const n = document.getElementById('nombre').value;
+            const a = document.getElementById('asunto').value;
+            const m = document.getElementById('mensaje').value;
+            if(!n || !a || !m) return alert("Amor, llena todos los campos.");
             
-            const nombre = document.getElementById('nombre').value;
-            const asunto = document.getElementById('asunto').value;
-            const mensaje = document.getElementById('mensaje').value;
-
-            if(!nombre || !asunto || !mensaje) {
-                alert("Amor, por favor llena todos los datos para poder ayudarte.");
-                return;
-            }
-
-            // Formatear mensaje para URL
-            const texto = `Hola Aura Tech! 👋%0A%0A` +
-                          `*Nombre:* ${nombre}%0A` +
-                          `*Interesado en:* ${asunto}%0A` +
-                          `*Mensaje:* ${mensaje}`;
-
-            const url = `https://api.whatsapp.com/send?phone=${telefono}&text=${texto}`;
-            
-            window.open(url, '_blank');
+            const msg = `*Aura Tech - Nueva Consulta*%0A*Nombre:* ${n}%0A*Servicio:* ${a}%0A*Mensaje:* ${m}`;
+            window.open(`https://api.whatsapp.com/send?phone=${tel}&text=${msg}`, '_blank');
         }
     </script>
-
 </body>
 </html>
