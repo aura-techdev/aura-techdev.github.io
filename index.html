@@ -3,31 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Tech | Soluciones Digitales</title>
+    <title>Aura Tech | Soluciones Digitales Innovadoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary-blue: #38bdf8;
+            --accent-blue: #0ea5e9;
+            --border-color: #334155;
+        }
+
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navegación */
+        header {
+            background-color: var(--dark-card);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--text-light);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: calc(100vh - 80px); /* Ajusta a la altura del header */
+            display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
+            text-align: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://via.placeholder.com/1920x1080/0f172a/38bdf8?text=Aura+Tech+Background') no-repeat center center/cover;
+            animation: fadeIn 1.5s ease-out;
         }
-        .container { text-align: center; border: 1px solid #334155; padding: 2rem; border-radius: 1rem; background: #1e293b; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-        h1 { color: #38bdf8; margin-bottom: 0.5rem; }
-        p { color: #94a3b8; font-size: 1.1rem; }
-        .badge { background: #0ea5e9; color: white; padding: 0.2rem 0.8rem; border-radius: 9999px; font-size: 0.8rem; text-transform: uppercase; }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--text-light);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-blue);
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-blue);
+        }
+
+        section h2 span {
+            color: var(--text-light);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background-color: var(--dark-card);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5)); /* Sombra azul para los íconos */
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--dark-card);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: calc(100% - 20px);
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            border-radius: 5px;
+            font-size: 1rem;
+            resize: vertical;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .contact-form button {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-card);
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Oculta el menú en móviles por simplicidad para este ejemplo */
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image {
+                order: -1; /* Mueve la imagen arriba en móviles */
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <span class="badge">Próximamente</span>
-        <h1>Aura Tech</h1>
-        <p>Programación de Sistemas | Diseño Web | Optimización AdSense</p>
-        <p style="font-size: 0.9rem; margin-top: 2rem; opacity: 0.7;">Impulsado por la disciplina y la tecnología.</p>
-    </div>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Aura<span>Tech</span></a>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Impulsa tu <span>Negocio</span> con Aura Tech</h1>
+            <p>Soluciones innovadoras en programación, diseño web y monetización inteligente para que tu presencia digital domine.</p>
+            <a href="#servicios" class="btn">Explora Nuestros Servicios</a>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <div class="container">
+            <h2>Nuestros <span>Servicios</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80/38bdf8/ffffff?text=CODE" alt="Programación de Sistemas">
+                    <h3>Programación de Sistemas</h3>
+                    <p>Desarrollamos software robusto y a medida para automatizar tus procesos y escalar tu negocio, desde CRMs hasta aplicaciones personalizadas.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80/38bdf8/ffffff?text=DESIGN" alt="Diseño Web">
+                    <h3>Diseño Web Estratégico</h3>
+                    <p>Creamos experiencias digitales atractivas y funcionales que cautivan a tus usuarios y convierten visitantes en clientes leales.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80/38bdf8/ffffff?text=ADS" alt="Optimización AdSense">
+                    <h3>Optimización AdSense</h3>
+                    <p>Maximizamos tus ingresos publicitarios con estrategias avanzadas de Google AdSense, identificando nichos rentables y optimizando la visibilidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <div class="container">
+            <h2>Sobre <span>Nosotros</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>La Visión Detrás de Aura Tech</h3>
+                    <p>En <strong>Aura Tech</strong>, fusionamos la disciplina militar con la vanguardia tecnológica. Nací de la mente de un programador y diseñador con una visión clara: ofrecer soluciones digitales que no solo funcionen, sino que dominen.</p>
+                    <p>Conmigo, **Aura**, como tu copiloto inteligente, garantizamos precisión en cada línea de código, estrategia en cada pixel y una dedicación inquebrantable a tus objetivos. Desde la conceptualización hasta la implementación y monetización, somos tu aliado para el éxito digital.</p>
+                    <p>Creemos en el poder de la tecnología para transformar, y estamos listos para construir el futuro contigo.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Tu+Foto+Aqui" alt="Equipo Aura Tech">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container">
+            <h2>Contacta a <span>Aura Tech</span></h2>
+            <p>¿Listo para transformar tu presencia digital? Contáctanos hoy y comencemos a construir tu próximo gran proyecto.</p>
+            <div class="contact-form">
+                <input type="text" placeholder="Tu Nombre Completo">
+                <input type="email" placeholder="Tu Correo Electrónico">
+                <input type="text" placeholder="Asunto">
+                <textarea placeholder="Tu Mensaje" rows="5"></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Aura Tech. Todos los derechos reservados. Desarrollado con 🤍 por <a href="https://aura-techdev.github.io">Aura Tech</a>.</p>
+        </div>
+    </footer>
 </body>
 </html>
